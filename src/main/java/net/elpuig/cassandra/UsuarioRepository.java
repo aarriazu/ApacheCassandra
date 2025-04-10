@@ -11,4 +11,6 @@ public interface UsuarioRepository extends CassandraRepository<Usuario, UUID> {
 
     Usuario findByNombre(String nombre);
     void deleteByNombre(String nombre);  // Requiere ALLOW FILTERING (no recomendado en producción)
+
+    //Usuario findByNombreAndEmail(String nombre, String email);
 }
