@@ -7,7 +7,6 @@ import java.util.UUID;
 
 @Repository
 public interface UsuarioRepository extends CassandraRepository<Usuario, UUID> {
-    // Métodos personalizados (opcionales)
 
     Usuario findByNombre(String nombre);
     void deleteByNombre(String nombre);  // Requiere ALLOW FILTERING (no recomendado en producción)

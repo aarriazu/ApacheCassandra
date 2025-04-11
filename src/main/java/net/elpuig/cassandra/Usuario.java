@@ -2,11 +2,13 @@ package net.elpuig.cassandra;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
+
+import java.io.Serializable;
 import java.util.UUID;
 import java.util.Date;
 
 @Table("usuario")
-public class Usuario {
+public class Usuario implements Serializable {
 
     @PrimaryKey
     private UUID usuario_id;
@@ -15,10 +17,8 @@ public class Usuario {
     private Date fecha_registro;
     private Date ultima_conexion;
 
-    // Constructor vacío (necesario para Spring Data)
     public Usuario() {}
 
-    // Constructor con campos
     public Usuario(UUID usuario_id, String nombre, String email, Date fecha_registro, Date ultima_conexion) {
         this.usuario_id = usuario_id;
         this.nombre = nombre;
@@ -27,7 +27,11 @@ public class Usuario {
         this.ultima_conexion = ultima_conexion;
     }
 
-    // Getters y Setters
+    @Override
+    public String toString() {
+        return "Usuario [id=" + usuario_id + ", nombre=" + nombre + ", email=" + email + ", fecha registro=" + fecha_registro + ", ultima conexion=" + ultima_conexion + "]";
+    }
+
     public UUID getUsuario_id() {
         return usuario_id;
     }

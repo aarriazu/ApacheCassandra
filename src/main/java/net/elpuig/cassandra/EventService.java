@@ -9,7 +9,6 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
 
-    // Guardar evento en la base de datos
     public Event saveEvent(Event event) {
         return eventRepository.save(event);
     }

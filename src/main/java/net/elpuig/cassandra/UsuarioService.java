@@ -21,7 +21,6 @@ public class UsuarioService {
     @Autowired
     private CqlSession session;
 
-    // Crear o actualizar usuario
     public Usuario saveUsuario(Usuario usuario) {
         if (usuario.getUsuario_id() == null) {
             usuario.setUsuario_id(UUID.randomUUID());  // Genera un UUID si es nuevo
@@ -29,11 +28,14 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    public void actualizarUltimaConexion(Usuario usuario) {
+        usuario.setUltima_conexion(new Date());
+        usuarioRepository.save(usuario);
+    }
+
     public Usuario findUsuarioByNombreAndEmail(String nombre, String email) {
-        // Verifica que estás utilizando CqlSession, no HttpSession
         String query = "SELECT * FROM usuarios WHERE nombre = ? AND email = ? ALLOW FILTERING";
 
-        // Ejecutar consulta Cassandra
         ResultSet resultSet = session.execute(query, nombre, email);
 
         Row row = resultSet.one();
@@ -43,17 +45,14 @@ public class UsuarioService {
         return null;
     }
 
-    // Obtener todos los usuarios
     public List<Usuario> getAllUsuarios() {
         return usuarioRepository.findAll();
     }
 
-    // Obtener usuario por ID
     public Usuario getUsuarioById(UUID id) {
         return usuarioRepository.findById(id).orElse(null);
     }
 
-    // Eliminar usuario por ID
     public void deleteUsuario(UUID id) {
         usuarioRepository.deleteById(id);
     }

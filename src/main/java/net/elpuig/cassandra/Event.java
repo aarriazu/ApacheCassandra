@@ -9,51 +9,49 @@ import java.util.UUID;
 public class Event {
 
     @Id
-    private UUID usuarioId;
-    private java.util.Date fechaEvento;
-    private String urlPagina;
+    private UUID usuario_id;
+    private java.util.Date fecha_evento;
+    private String url_pagina;
     private String dominio;
     private String accion;
     private String elemento;
     private String detalles;
-    private Integer duracionSegundos;
+    private Integer duracion_segundos;
 
-    public Event(UUID usuarioId, java.util.Date fechaEvento, String urlPagina, String dominio, String accion,
-                  String elemento, String detalles, Integer duracionSegundos) {
-        this.usuarioId = usuarioId;
-        this.fechaEvento = fechaEvento;
-        this.urlPagina = urlPagina;
+    public Event(UUID usuario_id, java.util.Date fechaEvento, String urlPagina, String dominio, String accion,
+                  String elemento, String detalles, Integer duracion_segundos) {
+        this.usuario_id = usuario_id;
+        this.fecha_evento = fechaEvento;
+        this.url_pagina = urlPagina;
         this.dominio = dominio;
         this.accion = accion;
         this.elemento = elemento;
         this.detalles = detalles;
-        this.duracionSegundos = duracionSegundos;
+        this.duracion_segundos = duracion_segundos;
     }
 
-    // Getters y setters
-
     public UUID getUsuarioId() {
-        return usuarioId;
+        return usuario_id;
     }
 
     public void setUsuarioId(UUID usuarioId) {
-        this.usuarioId = usuarioId;
+        this.usuario_id = usuarioId;
     }
 
-    public java.util.Date getFechaEvento() {
-        return fechaEvento;
+    public java.util.Date getFecha_evento() {
+        return fecha_evento;
     }
 
-    public void setFechaEvento(java.util.Date fechaEvento) {
-        this.fechaEvento = fechaEvento;
+    public void setFecha_evento(java.util.Date fecha_evento) {
+        this.fecha_evento = fecha_evento;
     }
 
     public String getUrlPagina() {
-        return urlPagina;
+        return url_pagina;
     }
 
     public void setUrlPagina(String urlPagina) {
-        this.urlPagina = urlPagina;
+        this.url_pagina = urlPagina;
     }
 
     public String getDominio() {
@@ -89,10 +87,10 @@ public class Event {
     }
 
     public Integer getDuracionSegundos() {
-        return duracionSegundos;
+        return duracion_segundos;
     }
 
     public void setDuracionSegundos(Integer duracionSegundos) {
-        this.duracionSegundos = duracionSegundos;
+        this.duracion_segundos = duracionSegundos;
     }
 }
